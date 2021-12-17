@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1301.grocery.view.MainWindow">
+   <children>
+   		<Label layoutX="13.0" layoutY="14.0" text="Retailer Name" />
+     	<TextField fx:id="retailerName" layoutX="13.0" layoutY="34.0"/>
+     	<Button layoutX="205.0" layoutY="34.0" mnemonicParsing="false" onAction="#createRetailer" text="Create Retailer" />
+     	
+     	<Label layoutX="13.0" layoutY="84.0" text="Select Retailer" />
+     	<ComboBox fx:id="retailers" layoutX="13.0" layoutY="104.0" onAction="#retailerSelected" prefHeight="17.0" prefWidth="171.0" />
+     	<Button layoutX="220" layoutY="104.0" mnemonicParsing="false" onAction="#createShoppingCart" text="Create Shopping Cart" />
+  
+  		<Label layoutX="390.0" layoutY="84.0" text="Select ShoppingCart"/>
+  		<ComboBox fx:id="carts" layoutX="390.0" layoutY="104.0" onAction="#cartSelected" prefHeight="17.0" prefWidth="171.0" />
+  		
+  
+  		<Label layoutX="13.0" layoutY="154.0" text="Item Description" />
+     	<TextField fx:id="itemDescription" layoutX="13.0" layoutY="174.0"/>
+     	<Label layoutX="200.0" layoutY="154.0" text="Item Id Number" />
+     	<TextField fx:id="itemIdNumber" prefWidth="100" layoutX="200.0" layoutY="174.0"/>
+     	<Label layoutX="330.0" layoutY="154.0" text="Item Unit Price" />
+     	<TextField fx:id="itemUnitPrice" prefWidth="100" layoutX="330.0" layoutY="174.0"/>
+     	<Label layoutX="460.0" layoutY="154.0" text="Item Quantity" />
+     	<TextField fx:id="itemQuantity" prefWidth="100" layoutX="460.0" layoutY="174.0"/>
+     	<Button layoutX="580" layoutY="174.0" mnemonicParsing="false" onAction="#addItem" text="Add Item to Selected Cart" />
+     	
+     	<fx:define>
+     	<ToggleGroup fx:id="statusGroup"  />
+     	</fx:define>
+     	<RadioButton fx:id="receivedButton" layoutX="13.0" layoutY="214" text="Received" toggleGroup="$statusGroup" />
+     	<RadioButton fx:id="processingButton" layoutX="123.0" layoutY="214" text="Processing" toggleGroup="$statusGroup" />
+     	<RadioButton fx:id="shippedButton" layoutX="233.0" layoutY="214" text="Shipped"  toggleGroup="$statusGroup" />
+     	<RadioButton fx:id="deliveredButton" layoutX="343.0" layoutY="214" text="Delivered" toggleGroup="$statusGroup" />
+     	<Button layoutX="480" layoutY="214.0" mnemonicParsing="false" onAction="#changeCartStatus" text="Change Selected Cart Status" />
+     	
+     	
+     	
+  		<Button layoutX="13.0" layoutY="250.0" mnemonicParsing="false" onAction="#displaySelectedCart" text="Display Selected Cart" />
+  		<Button layoutX="175.0" layoutY="250.0" mnemonicParsing="false" onAction="#displayTotalCostByStatus" text="Display Total Cost By Status" />
+  		<Button layoutX="380.0" layoutY="250.0"  mnemonicParsing="false" onAction="#removeItemById" text="Remove Item" />
+  		<Button layoutX="490.0" layoutY="250.0"  mnemonicParsing="false" onAction="#rationItem" text="Ration Item" />
+  		<Button layoutX="590.0" layoutY="250.0"  mnemonicParsing="false" onAction="#findItemWithHighestQuantity" text="Item With Highest Quantity" />
+  		<TextArea fx:id="output" editable="false" layoutX="12.0" layoutY="283.0" prefHeight="277.0" prefWidth="774.0" />
+  </children>
+</AnchorPane>
